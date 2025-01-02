@@ -1,5 +1,3 @@
-import { IPagination } from "../interface/pagination-interface";
-
 const Pagination = () => {
   return (
     <>
