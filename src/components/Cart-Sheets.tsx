@@ -1,21 +1,7 @@
 import { useEffect, useState } from "react";
 import { X, Plus, Minus } from "lucide-react";
 import { motion } from "framer-motion";
-
-// Definir el tipo para las props que se pasan al componente
-interface CartSheetsProps {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-// Definir el tipo para los elementos del carrito
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+import { CartItem, CartSheetsProps } from "@/interface/cart-items";
 
 const CartSheets: React.FC<
   CartSheetsProps & {
