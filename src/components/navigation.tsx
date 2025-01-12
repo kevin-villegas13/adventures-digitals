@@ -128,16 +128,17 @@ const Navigation = () => {
 
         {/* Menú móvil */}
         <NavbarMenu>
-          {menuItems.map(({ href, label }) => (
-            <NavbarMenuItem key={href}>
+          <NavbarMenuItem>
+            {menuItems.map(({ href, label }) => (
               <Link
+                key={href}
                 href={href}
                 className="font-medium text-black hover:text-gray-700 transition-colors"
               >
                 {label}
               </Link>
-            </NavbarMenuItem>
-          ))}
+            ))}
+          </NavbarMenuItem>
         </NavbarMenu>
       </Navbar>
 

@@ -131,67 +131,56 @@ const ProductCards = () => {
   return (
     <div className="flex flex-col bg-gray-50 dark:bg-gray-900 min-h-screen">
       <main className="flex-1 px-4 sm:px-6 lg:px-8 py-6">
-        {/* Título de la sección */}
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl tracking-tight font-extrabold text-gray-900 dark:text-white leading-tight text-center mb-8">
+        {/* Título */}
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-8">
           Nuestros Productos
         </h1>
 
-        {/* Cards de productos */}
-        <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {/* Grid de productos */}
+        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {currentProducts.map((item) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+              whileHover={{ scale: 1.05 }}
+              className="flex justify-center"
             >
               <Card
                 isPressable
                 shadow="lg"
+                className="border border-gray-200 rounded-lg w-full"
                 onPress={() =>
                   console.log(`Producto presionado: ${item.title}`)
                 }
-                className="border border-gray-200 rounded-lg"
               >
-                {/* Imagen del producto */}
                 <CardBody className="p-0">
                   <Image
                     alt={item.title}
-                    className="w-full object-cover h-[250px] sm:h-[200px] lg:h-[250px] rounded-t-lg"
                     src={item.img}
-                    width="100%"
+                    className="w-full h-auto object-cover rounded-t-lg"
                   />
                 </CardBody>
-
-                {/* Detalles del producto */}
-                <CardFooter className="flex flex-col justify-between p-4 bg-white dark:bg-gray-800">
-                  <div className="flex flex-col space-y-2">
-                    <h3 className="font-semibold text-lg text-gray-900 dark:text-white">
+                <CardFooter className="flex flex-col p-4 bg-white dark:bg-gray-800">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                       {item.title}
                     </h3>
-                    <div className="flex items-center space-x-1">
-                      {renderStars(item.rating)} {/* Renderiza las estrellas */}
-                    </div>
+                    <div className="flex">{renderStars(item.rating)}</div>
                     <p className="text-xl font-bold text-gray-900 dark:text-gray-200">
                       {item.price}
                     </p>
                   </div>
-
-                  {/* Botones para Comprar y Ver Detalles */}
-                  <div className="flex flex-col sm:flex-row sm:space-x-4 w-full justify-center">
+                  <div className="flex flex-col sm:flex-row gap-2 mt-4">
                     <Button
                       size="lg"
-                      onPress={() =>
-                        console.log(`Producto comprado: ${item.title}`)
-                      }
-                      className="w-full sm:w-auto mb-2 sm:mb-0"
+                      onPress={() => console.log(`Comprado: ${item.title}`)}
+                      className="w-full sm:w-auto"
                     >
                       <ShoppingCart size={18} className="mr-2" />
                       Comprar
                     </Button>
-
-                    {/* Enlace a los detalles del producto */}
                     <Link to={`/product/${item.id}`}>
                       <Button
                         size="lg"
@@ -208,7 +197,7 @@ const ProductCards = () => {
         </div>
 
         {/* Paginación */}
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-8">
           <Pagination
             showControls
             initialPage={1}
@@ -217,6 +206,7 @@ const ProductCards = () => {
           />
         </div>
 
+        {/* Categorías */}
         <CategorySection />
       </main>
     </div>
