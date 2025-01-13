@@ -24,8 +24,7 @@ import { SearchIcon } from "lucide-react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn] = useState(true);
 
   return (
     <Navbar position="static" onMenuOpenChange={setIsMenuOpen}>
