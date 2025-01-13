@@ -5,167 +5,116 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Input,
   Link,
-} from "@nextui-org/react";
-import {
+  NavbarBrand,
+  NavbarItem,
+  Button,
+  Input,
   Dropdown,
   DropdownTrigger,
+  Avatar,
   DropdownMenu,
-  DropdownSection,
   DropdownItem,
-} from "@nextui-org/dropdown";
-import { Search, ShoppingCart, User } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+} from "@nextui-org/react";
+import { IconShoppingCart } from "@tabler/icons-react";
+
 import LogoIcon from "@/icons/logo-icons";
+import { siteConfig } from "@/config/site-config";
+import { SearchIcon } from "lucide-react";
 
 const Navigation = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-
-  const menuItems = [
-    { href: "/", label: "Inicio" },
-    { href: "/products", label: "Productos" },
-    { href: "/categories", label: "Categorías" },
-    { href: "/offers", label: "Ofertas" },
-    { href: "/contact", label: "Contacto" },
-  ];
-
-  const toggleSearch = () => setIsSearchOpen((prev) => !prev);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
-    <>
-      <Navbar isBordered disableAnimation className="bg-white shadow-md">
-        {/* Menú móvil */}
-        <NavbarContent justify="start" className="sm:hidden">
-          <NavbarMenuToggle />
-        </NavbarContent>
+    <Navbar position="static" onMenuOpenChange={setIsMenuOpen}>
+      <NavbarContent>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
+        <NavbarBrand>
+          <LogoIcon />
+          <p className="font-bold text-inherit">ACME</p>
+        </NavbarBrand>
+      </NavbarContent>
 
-        {/* Logo */}
-        <NavbarContent justify="center">
-          <Link href="/" className="font-bold text-lg text-black tracking-wide">
-            <LogoIcon />
-          </Link>
-        </NavbarContent>
-
-        {/* Menú principal */}
-        <NavbarContent className="hidden sm:flex gap-6" justify="center">
-          {menuItems.map(({ href, label }) => (
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        {siteConfig.map((item, index) => (
+          <NavbarItem key={`${item.href}-${index}`}>
             <Link
-              key={href}
-              href={href}
+              color="foreground"
+              href={item.href}
               className="font-medium text-black hover:text-gray-700 transition-colors"
             >
-              {label}
+              {item.label}
             </Link>
-          ))}
-        </NavbarContent>
+          </NavbarItem>
+        ))}
+      </NavbarContent>
 
-        {/* Íconos a la derecha */}
-        <NavbarContent justify="end" className="gap-4">
-          {/* Ícono de búsqueda */}
-          <div className="relative">
-            <button
-              className="p-2 rounded-md hover:bg-gray-200 sm:hidden"
-              onClick={toggleSearch}
-            >
-              <Search size={24} className="text-black" />
-            </button>
+      <NavbarContent as="div" className="items-center" justify="end">
+        <Input
+          classNames={{
+            base: "max-w-full sm:max-w-[10rem] h-10",
+            mainWrapper: "h-full",
+            input: "text-small",
+            inputWrapper:
+              "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+          }}
+          placeholder="Type to search..."
+          size="sm"
+          startContent={<SearchIcon size={18} />}
+          type="search"
+        />
 
-            {/* Barra de búsqueda en desktop */}
-            <div className="hidden sm:flex">
-              <Input
-                placeholder="Buscar productos..."
-                aria-label="Buscar"
-                startContent={<Search size={16} className="text-black" />}
-                className="rounded-full bg-gray-100 text-black px-4 py-2 shadow-sm focus:ring-2 focus:ring-gray-700 w-full"
-              />
-            </div>
-          </div>
-
-          {/* Menú desplegable de usuario */}
-          <Dropdown>
-            <DropdownTrigger>
-              <button className="p-2 rounded-md hover:bg-gray-200">
-                <User size={24} className="text-black" />
-              </button>
-            </DropdownTrigger>
-
-            <DropdownMenu aria-label="Opciones de usuario">
-              <DropdownSection title="Cuenta">
-                <DropdownItem key="profile">
-                  <Link href="/profile" className="text-black">
-                    Perfil
-                  </Link>
+        {isLoggedIn ? (
+          <>
+            <Dropdown placement="bottom-end">
+              <DropdownTrigger>
+                <Avatar
+                  isBordered
+                  as="button"
+                  className="transition-transform"
+                  color="secondary"
+                  name="Jason Hughes"
+                  size="sm"
+                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                />
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Profile Actions" variant="flat">
+                <DropdownItem key="profile" className="h-14 gap-2">
+                  <p className="font-semibold">Signed in as</p>
+                  <p className="font-semibold">zoey@example.com</p>
                 </DropdownItem>
-                <DropdownItem key="settings">
-                  <Link href="/settings" className="text-black">
-                    Configuración
-                  </Link>
+                <DropdownItem key="configurations">Configurations</DropdownItem>
+                <DropdownItem key="logout" color="danger">
+                  Log Out
                 </DropdownItem>
-              </DropdownSection>
-
-              <DropdownSection title="Acciones">
-                <DropdownItem key="history">
-                  <Link href="/history" className="text-black">
-                    Historial de compras
-                  </Link>
-                </DropdownItem>
-                <DropdownItem key="logout" className="text-red-500">
-                  Cerrar sesión
-                </DropdownItem>
-              </DropdownSection>
-            </DropdownMenu>
-          </Dropdown>
-
-          {/* Ícono de carrito */}
-          <Link href="/cart">
-            <ShoppingCart
+              </DropdownMenu>
+            </Dropdown>
+            {/* Carrito de compras con el ícono de Tabler */}
+            <IconShoppingCart
               size={24}
               className="text-black hover:text-gray-700"
             />
-          </Link>
-        </NavbarContent>
-
-        {/* Menú móvil */}
-        <NavbarMenu>
-          <NavbarMenuItem>
-            {menuItems.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className="font-medium text-black hover:text-gray-700 transition-colors"
-              >
-                {label}
-              </Link>
-            ))}
-          </NavbarMenuItem>
-        </NavbarMenu>
-      </Navbar>
-
-      {/* Barra de búsqueda desplegable en móvil */}
-      <AnimatePresence>
-        {isSearchOpen && (
-          <motion.div
-            className="sm:hidden bg-white shadow-md border-t p-4"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 20,
-            }}
-          >
-            <Input
-              placeholder="Buscar productos..."
-              aria-label="Buscar"
-              startContent={<Search size={16} className="text-black" />}
-              className="rounded-full bg-gray-100 text-black px-4 py-2 shadow-sm focus:ring-2 focus:ring-gray-700 w-full"
-            />
-          </motion.div>
+          </>
+        ) : (
+          <Button>Login</Button>
         )}
-      </AnimatePresence>
-    </>
+      </NavbarContent>
+
+      <NavbarMenu>
+        {siteConfig.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link className="w-full" href={`${item.href}`} size="lg">
+              {item.label}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   );
 };
 

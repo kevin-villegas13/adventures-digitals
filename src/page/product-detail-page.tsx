@@ -1,101 +1,76 @@
 import DefaultLayout from "@/layouts/default";
-import { Image } from "@nextui-org/image";
-import { Button, Card } from "@nextui-org/react";
 import { Heart, Star } from "lucide-react";
+import { Image, Button } from "@nextui-org/react";
 
 const ProductDetailPage = () => {
   return (
     <DefaultLayout>
-      <div className="container mx-auto px-4 py-8">
-        {/* Estructura en dos columnas (imagenes a la izquierda y la informacion a la derecha) */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Columna de imágenes del producto */}
-          <div className="space-y-4">
-            {/* Imagen principal del producto */}
-            <div className="relative aspect-square">
+      <section className="py-8 bg-white dark:bg-gray-900 md:py-16">
+        <div className="max-w-screen-xl px-4 mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="max-w-md lg:max-w-lg mx-auto">
               <Image
+                className="w-full dark:hidden"
                 src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg"
-                alt="Producto principal"
-                className="object-cover rounded-lg"
+                alt="iMac Light"
+              />
+              <Image
+                className="w-full hidden dark:block"
+                src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg"
+                alt="iMac Dark"
               />
             </div>
 
-            {/* Vistas adicionales del producto */}
-            <div className="grid grid-cols-4 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <button
-                  key={i}
-                  className="relative aspect-square border hover:border-primary rounded-md overflow-hidden"
-                >
-                  <Image
-                    src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg"
-                    alt={`Vista ${i}`}
-                    className="object-cover"
-                  />
-                </button>
-              ))}
+            <div>
+              <h1 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+                Apple iMac 24" All-In-One Computer, Apple M1, 8GB RAM, 256GB
+                SSD, Mac OS, Pink
+              </h1>
+              <div className="mt-4 flex items-center gap-4">
+                <p className="text-2xl font-extrabold text-gray-900 dark:text-white sm:text-3xl">
+                  $1,249.99
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1 text-yellow-300">
+                    <Star size={16} />
+                  </div>
+                  <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                    (5.0)
+                  </p>
+                  <a
+                    href="#"
+                    className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white"
+                  >
+                    345 Reviews
+                  </a>
+                </div>
+              </div>
+              <div className="mt-6 flex flex-col sm:flex-row gap-4">
+                <Button className="flex items-center gap-2 py-2.5 px-5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700">
+                  <Heart size={20} />
+                  Add to favorites
+                </Button>
+                <Button className="flex items-center gap-2 py-2.5 px-5 text-sm font-medium text-white bg-primary-700 rounded-lg hover:bg-primary-800 dark:bg-primary-600 dark:hover:bg-primary-700">
+                  <Star size={20} />
+                  Add to cart
+                </Button>
+              </div>
+              <hr className="my-6 border-gray-200 dark:border-gray-800" />
+              <p className="mb-6 text-gray-500 dark:text-gray-400">
+                Studio quality three mic array for crystal clear calls and voice
+                recordings. Six-speaker sound system for a remarkably robust and
+                high-quality audio experience. Up to 256GB of ultrafast SSD
+                storage.
+              </p>
+              <p className="text-gray-500 dark:text-gray-400">
+                Two Thunderbolt USB 4 ports and up to two USB 3 ports. Ultrafast
+                Wi-Fi 6 and Bluetooth 5.0 wireless. Color matched Magic Mouse
+                with Magic Keyboard or Magic Keyboard with Touch ID.
+              </p>
             </div>
           </div>
-
-          {/* Columna de información del producto */}
-          <div className="space-y-6">
-            <Card className="p-6 space-y-6">
-              <div className="space-y-2">
-                {/* Nombre del producto */}
-                <h1 className="text-3xl font-bold">Camiseta Premium Algodón</h1>
-
-                {/* Calificación del producto */}
-                <div className="flex items-center gap-2">
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star
-                        key={i}
-                        className={`w-5 h-5 ${i <= 4 ? "fill-primary" : "fill-muted stroke-muted-foreground"}`}
-                      />
-                    ))}
-                  </div>
-                  <span className="text-sm text-muted-foreground">
-                    (128 reseñas)
-                  </span>
-                </div>
-
-                {/* Precio del producto */}
-                <div className="text-2xl font-bold">$49.99</div>
-              </div>
-
-              <div className="space-y-4">
-                {/* Botones de acción */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="flex-1" size="lg">
-                    Añadir al Carrito
-                  </Button>
-                  <Button size="lg" color="secondary">
-                    <Heart className="w-4 h-4 mr-2" />
-                    Añadir a Favoritos
-                  </Button>
-                </div>
-
-                {/* Descripción del producto */}
-                <div className="space-y-4 text-sm">
-                  <p>
-                    Esta camiseta premium está confeccionada con 100% algodón
-                    peinado de alta calidad, proporcionando una suavidad y
-                    durabilidad excepcionales. El corte regular ofrece un ajuste
-                    cómodo y versátil que favorece a todos los tipos de cuerpo.
-                  </p>
-                  {/* Lista de características */}
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>100% Algodón premium</li>
-                    <li>Tejido de 180g/m²</li>
-                    <li>Cuello redondo reforzado</li>
-                    <li>Lavable a máquina</li>
-                  </ul>
-                </div>
-              </div>
-            </Card>
-          </div>
         </div>
-      </div>
+      </section>
     </DefaultLayout>
   );
 };

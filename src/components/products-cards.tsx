@@ -138,9 +138,9 @@ const ProductCards = () => {
 
         {/* Grid de productos */}
         <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {currentProducts.map((item) => (
+          {currentProducts.map((item, index) => (
             <motion.div
-              key={item.id}
+              key={`${item.id}-${index}`}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
@@ -159,7 +159,7 @@ const ProductCards = () => {
                   <Image
                     alt={item.title}
                     src={item.img}
-                    className="w-full h-auto object-cover rounded-t-lg"
+                    className="w-full h-full object-cover rounded-t-lg"
                   />
                 </CardBody>
                 <CardFooter className="flex flex-col p-4 bg-white dark:bg-gray-800">
