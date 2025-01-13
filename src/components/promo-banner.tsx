@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 
 const PromoBanner = () => {
   const promoText = {
-    title: "Descubre el futuro de las compras",
+    title: "Descubre el futuro de los videojuegos",
     paragraph1:
-      "Bienvenido a nuestra tienda online, donde la comodidad se encuentra con la innovación. Ofrecemos una amplia variedad de productos, desde electrónicos hasta moda, todo a precios competitivos. Disfruta de una experiencia de compra sin interrupciones, con entrega rápida y ofertas exclusivas.",
+      "Bienvenido a nuestra tienda online de videojuegos, donde la diversión se encuentra con la innovación. Ofrecemos una amplia variedad de juegos, desde títulos de acción hasta aventuras, todo a precios competitivos. Disfruta de una experiencia de compra sin interrupciones, con entrega rápida y ofertas exclusivas.",
     paragraph2:
-      "Ya sea que busques los gadgets más recientes o ropa única, tenemos todo lo que necesitas. Compra hoy y vive una nueva forma de comprar online.",
+      "Ya sea que busques los últimos lanzamientos o juegos clásicos, tenemos todo lo que necesitas. Compra hoy y vive una nueva forma de jugar online.",
   };
 
   const promoImages = [

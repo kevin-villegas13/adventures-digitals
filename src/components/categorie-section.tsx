@@ -1,58 +1,51 @@
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
-  Cpu,
+  Monitor,
   Gamepad,
-  Book,
-  Shirt,
-  Refrigerator,
-  Palette,
-  Box,
+  Headphones,
+  Rocket,
+  Award,
+  Package,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-// Definimos las categorías y sus respectivos íconos
+// Definimos las categorías de videojuegos y sus respectivos íconos
 const categorias = [
   {
-    nombre: "Computadoras y Oficina",
-    icono: (
-      <Cpu className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
-    ),
-  },
-  {
-    nombre: "Juguetes y Coleccionables",
+    nombre: "Juegos de Acción",
     icono: (
       <Gamepad className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
     ),
   },
   {
-    nombre: "Libros",
+    nombre: "Juegos de Estrategia",
     icono: (
-      <Book className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
+      <Monitor className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
     ),
   },
   {
-    nombre: "Moda/Ropa",
+    nombre: "Juegos de Rol",
     icono: (
-      <Shirt className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
+      <Headphones className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
     ),
   },
   {
-    nombre: "Alimentos y Supermercado",
+    nombre: "Juegos de Lucha",
     icono: (
-      <Refrigerator className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
+      <Rocket className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
     ),
   },
   {
-    nombre: "Arte y Manualidades",
+    nombre: "Juegos de Deportes",
     icono: (
-      <Palette className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
+      <Award className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
     ),
   },
   {
-    nombre: "Electrónica",
+    nombre: "Juegos de Simulación",
     icono: (
-      <Box className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
+      <Package className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
     ),
   },
 ];
@@ -63,7 +56,7 @@ const CategorySection = () => {
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <div className="mb-4 flex items-center justify-between gap-4 md:mb-8">
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
-            Explora por categoría
+            Explora por categoría de juegos
           </h2>
           <Link
             to="#"
