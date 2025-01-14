@@ -65,7 +65,7 @@ const Login = () => {
           </Button>
         </Form>
         <p className="text-center text-small">
-          <Link href="#" size="sm">
+          <Link href="/register" size="sm">
             Create an account
           </Link>
         </p>

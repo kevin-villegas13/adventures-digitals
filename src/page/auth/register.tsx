@@ -1,4 +1,4 @@
-import { Button, Checkbox, Input, Link } from "@nextui-org/react";
+import { Button, Input, Link } from "@nextui-org/react";
 import { useState } from "react";
 import { IconEyeFilled, IconEyeClosed } from "@tabler/icons-react";
 
@@ -76,22 +76,13 @@ const Register = () => {
             type={isConfirmVisible ? "text" : "password"}
             variant="bordered"
           />
-          <Checkbox isRequired className="py-4" size="sm">
-            I agree with the&nbsp;
-            <Link href="#" size="sm">
-              Terms
-            </Link>
-            &nbsp; and&nbsp;
-            <Link href="#" size="sm">
-              Privacy Policy
-            </Link>
-          </Checkbox>
+
           <Button color="primary" type="submit">
             Sign Up
           </Button>
         </form>
         <p className="text-center text-small">
-          <Link href="#" size="sm">
+          <Link href="/login" size="sm">
             Already have an account? Log In
           </Link>
         </p>

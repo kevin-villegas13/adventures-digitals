@@ -2,13 +2,11 @@ import {
   Card,
   CardBody,
   CardFooter,
-  Image,
   Button,
   Pagination,
 } from "@nextui-org/react";
 import { ShoppingCart, Star } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import CategorySection from "./categorie-section";
 
@@ -17,82 +15,82 @@ const products = [
   {
     id: 1,
     title: "Producto 1",
-    price: "$20.00",
-    img: "https://via.placeholder.com/300x200",
-    rating: 4,
-    description: "Descripción detallada del producto 1.",
+    price: "$18.00",
+    img: "https://picsum.photos/id/1/200/300",
+    rating: 5,
+    description: "Una nueva descripción para el Producto 1.",
   },
   {
     id: 2,
     title: "Producto 2",
-    price: "$35.00",
-    img: "https://via.placeholder.com/300x200",
-    rating: 5,
-    description: "Descripción detallada del producto 2.",
+    price: "$40.00",
+    img: "https://picsum.photos/id/2/200/300",
+    rating: 4,
+    description: "Una nueva descripción para el Producto 2.",
   },
   {
     id: 3,
     title: "Producto 3",
     price: "$25.00",
-    img: "https://via.placeholder.com/300x200",
+    img: "https://picsum.photos/id/3/200/300",
     rating: 3,
-    description: "Descripción detallada del producto 3.",
+    description: "Una nueva descripción para el Producto 3.",
   },
   {
     id: 4,
     title: "Producto 4",
-    price: "$40.00",
-    img: "https://via.placeholder.com/300x200",
+    price: "$50.00",
+    img: "https://picsum.photos/id/4/200/300",
     rating: 5,
-    description: "Descripción detallada del producto 4.",
+    description: "Una nueva descripción para el Producto 4.",
   },
   {
     id: 5,
     title: "Producto 5",
-    price: "$50.00",
-    img: "https://via.placeholder.com/300x200",
+    price: "$55.00",
+    img: "https://picsum.photos/id/5/200/300",
     rating: 4,
-    description: "Descripción detallada del producto 5.",
+    description: "Una nueva descripción para el Producto 5.",
   },
   {
     id: 6,
     title: "Producto 6",
-    price: "$30.00",
-    img: "https://via.placeholder.com/300x200",
+    price: "$28.00",
+    img: "https://picsum.photos/id/6/200/300",
     rating: 2,
-    description: "Descripción detallada del producto 6.",
+    description: "Una nueva descripción para el Producto 6.",
   },
   {
     id: 7,
     title: "Producto 7",
-    price: "$15.00",
-    img: "https://via.placeholder.com/300x200",
+    price: "$38.00",
+    img: "https://picsum.photos/id/7/200/300",
     rating: 4,
-    description: "Descripción detallada del producto 7.",
+    description: "Una nueva descripción para el Producto 7.",
   },
   {
     id: 8,
     title: "Producto 8",
-    price: "$60.00",
-    img: "https://via.placeholder.com/300x200",
+    price: "$62.00",
+    img: "https://picsum.photos/id/8/200/300",
     rating: 5,
-    description: "Descripción detallada del producto 8.",
+    description: "Una nueva descripción para el Producto 8.",
   },
   {
     id: 9,
     title: "Producto 9",
-    price: "$45.00",
-    img: "https://via.placeholder.com/300x200",
+    price: "$46.00",
+    img: "https://picsum.photos/id/9/200/300",
     rating: 3,
-    description: "Descripción detallada del producto 9.",
+    description: "Una nueva descripción para el Producto 9.",
   },
   {
     id: 10,
     title: "Producto 10",
-    price: "$55.00",
-    img: "https://via.placeholder.com/300x200",
+    price: "$59.00",
+    img: "https://picsum.photos/id/10/200/300",
     rating: 4,
-    description: "Descripción detallada del producto 10.",
+    description: "Una nueva descripción para el Producto 10.",
   },
 ];
 
@@ -137,6 +135,7 @@ const ProductCards = () => {
         </h1>
 
         {/* Grid de productos */}
+        {/* Grid de productos */}
         <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {currentProducts.map((item, index) => (
             <motion.div
@@ -151,16 +150,16 @@ const ProductCards = () => {
                 isPressable
                 shadow="lg"
                 className="border border-gray-200 rounded-lg w-full"
-                onPress={() =>
-                  console.log(`Producto presionado: ${item.title}`)
-                }
               >
                 <CardBody className="p-0">
-                  <Image
-                    alt={item.title}
-                    src={item.img}
-                    className="w-full h-full object-cover rounded-t-lg"
-                  />
+                  <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-96">
+                    <img
+                      alt={item.title}
+                      src={item.img}
+                      className="object-cover w-full h-full rounded-t-lg"
+                      loading="lazy"
+                    />
+                  </div>
                 </CardBody>
                 <CardFooter className="flex flex-col p-4 bg-white dark:bg-gray-800">
                   <div className="space-y-2">
@@ -173,22 +172,25 @@ const ProductCards = () => {
                     </p>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-2 mt-4">
+                    {/* Botón de compra */}
                     <Button
                       size="lg"
                       onPress={() => console.log(`Comprado: ${item.title}`)}
-                      className="w-full sm:w-auto"
+                      className="w-full sm:w-auto flex items-center justify-center gap-2"
                     >
                       <ShoppingCart size={18} className="mr-2" />
                       Comprar
                     </Button>
-                    <Link to={`/product/${item.id}`}>
-                      <Button
-                        size="lg"
-                        className="w-full sm:w-auto bg-blue-500 hover:bg-blue-600"
-                      >
-                        Ver Detalles
-                      </Button>
-                    </Link>
+
+                    {/* Enlace separado */}
+                    <Button
+                      size="lg"
+                      as="a"
+                      href={`/product/${item.id}`}
+                      className="w-full sm:w-auto text-center bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+                    >
+                      Ver Detalles
+                    </Button>
                   </div>
                 </CardFooter>
               </Card>

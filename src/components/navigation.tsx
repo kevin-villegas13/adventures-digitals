@@ -21,13 +21,14 @@ import { IconShoppingCart } from "@tabler/icons-react";
 import LogoIcon from "@/icons/logo-icons";
 import { siteConfig } from "@/config/site-config";
 import { SearchIcon } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn] = useState(true);
+  const [isLoggedIn] = useState(false);
 
   return (
-    <Navbar position="static" onMenuOpenChange={setIsMenuOpen}>
+    <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -100,7 +101,7 @@ const Navigation = () => {
             />
           </>
         ) : (
-          <Button>Login</Button>
+          <Link href="/login">Login</Link>
         )}
       </NavbarContent>
 
