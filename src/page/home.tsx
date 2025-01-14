@@ -1,13 +1,13 @@
 import ProductCards from "@/components/products-cards";
 import PromoBanner from "@/components/promo-banner";
-import DefaultLayout from "@/layouts/default";
+import HomeLayout from "@/layouts/home";
 
 const HomePage = () => {
   return (
-    <DefaultLayout>
+    <HomeLayout>
       <PromoBanner />
       <ProductCards />
-    </DefaultLayout>
+    </HomeLayout>
   );
 };
 

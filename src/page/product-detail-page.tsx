@@ -1,10 +1,10 @@
-import DefaultLayout from "@/layouts/default";
+import HomeLayout from "@/layouts/home";
 import { Heart, Star } from "lucide-react";
 import { Image, Button } from "@nextui-org/react";
 
 const ProductDetailPage = () => {
   return (
-    <DefaultLayout>
+    <HomeLayout>
       <section className="py-8 bg-white dark:bg-gray-900 md:py-16">
         <div className="max-w-screen-xl px-4 mx-auto">
           <div className="grid lg:grid-cols-2 gap-8">
@@ -71,7 +71,7 @@ const ProductDetailPage = () => {
           </div>
         </div>
       </section>
-    </DefaultLayout>
+    </HomeLayout>
   );
 };
 

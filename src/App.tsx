@@ -3,6 +3,7 @@ import HomePage from "./page/home";
 import ProductDetailPage from "./page/product-detail-page";
 import Login from "./page/auth/login";
 import Register from "./page/auth/register";
+import DashboardPage from "./page/dashboard/dashboard";
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
       <Route path="/product/:productId" element={<ProductDetailPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+
+      <Route path="/dashboard" element={<DashboardPage />} />
     </Routes>
   );
 }

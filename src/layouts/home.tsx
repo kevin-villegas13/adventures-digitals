@@ -1,7 +1,7 @@
 import Footer from "@/components/footter";
 import Navigation from "@/components/navigation";
 
-const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
+const HomeLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex min-h-screen flex-col bg-gray-50 dark:bg-gray-900">
       {/* Navigation Bar */}
@@ -14,4 +14,4 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default DefaultLayout;
+export default HomeLayout;

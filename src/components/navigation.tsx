@@ -18,7 +18,7 @@ import {
 import { IconShoppingCart } from "@tabler/icons-react";
 
 import LogoIcon from "@/icons/logo-icons";
-import { siteConfig } from "@/config/site-config";
+import { siteConfig } from "@/config/site.config";
 import { SearchIcon } from "lucide-react";
 
 const Navigation = () => {
