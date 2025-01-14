@@ -10,80 +10,89 @@ const Register = () => {
   const toggleConfirmVisibility = () => setIsConfirmVisible(!isConfirmVisible);
 
   return (
-    <div className="flex h-full w-full items-center justify-center">
-      <div className="flex w-full max-w-sm flex-col gap-4 rounded-large px-8 pb-10 pt-6">
-        <p className="pb-4 text-left text-3xl font-semibold">
-          Sign Up
+    <div className="flex h-screen w-full items-center justify-center bg-gray-100 px-4">
+      <div className="flex w-full max-w-md flex-col gap-6 rounded-lg bg-white px-6 py-8 shadow-md sm:max-w-lg">
+        <h1 className="text-2xl font-bold text-gray-800 sm:text-3xl">
+          Crear Cuenta
           <span aria-label="emoji" className="ml-2" role="img">
             👋
           </span>
-        </p>
+        </h1>
         <form
           className="flex flex-col gap-4"
           onSubmit={(e) => e.preventDefault()}
         >
           <Input
             isRequired
-            label="Username"
+            label="Nombre de usuario"
             labelPlacement="outside"
             name="username"
-            placeholder="Enter your username"
+            placeholder="Escribe tu nombre de usuario"
             type="text"
             variant="bordered"
           />
           <Input
             isRequired
-            label="Email"
+            label="Correo electrónico"
             labelPlacement="outside"
             name="email"
-            placeholder="Enter your email"
+            placeholder="Escribe tu correo electrónico"
             type="email"
             variant="bordered"
           />
           <Input
             isRequired
             endContent={
-              <button type="button" onClick={toggleVisibility}>
+              <button
+                type="button"
+                onClick={toggleVisibility}
+                aria-label="Mostrar u ocultar contraseña"
+              >
                 {isVisible ? (
-                  <IconEyeClosed className="pointer-events-none text-2xl text-default-400" />
+                  <IconEyeClosed className="pointer-events-none text-2xl text-gray-500" />
                 ) : (
-                  <IconEyeFilled className="pointer-events-none text-2xl text-default-400" />
+                  <IconEyeFilled className="pointer-events-none text-2xl text-gray-500" />
                 )}
               </button>
             }
-            label="Password"
+            label="Contraseña"
             labelPlacement="outside"
             name="password"
-            placeholder="Enter your password"
+            placeholder="Escribe tu contraseña"
             type={isVisible ? "text" : "password"}
             variant="bordered"
           />
           <Input
             isRequired
             endContent={
-              <button type="button" onClick={toggleConfirmVisibility}>
+              <button
+                type="button"
+                onClick={toggleConfirmVisibility}
+                aria-label="Mostrar u ocultar confirmación de contraseña"
+              >
                 {isConfirmVisible ? (
-                  <IconEyeClosed className="pointer-events-none text-2xl text-default-400" />
+                  <IconEyeClosed className="pointer-events-none text-2xl text-gray-500" />
                 ) : (
-                  <IconEyeFilled className="pointer-events-none text-2xl text-default-400" />
+                  <IconEyeFilled className="pointer-events-none text-2xl text-gray-500" />
                 )}
               </button>
             }
-            label="Confirm Password"
+            label="Confirmar contraseña"
             labelPlacement="outside"
             name="confirmPassword"
-            placeholder="Confirm your password"
+            placeholder="Confirma tu contraseña"
             type={isConfirmVisible ? "text" : "password"}
             variant="bordered"
           />
 
-          <Button color="primary" type="submit">
-            Sign Up
+          <Button color="primary" type="submit" className="w-full">
+            Registrarse
           </Button>
         </form>
-        <p className="text-center text-small">
-          <Link href="/login" size="sm">
-            Already have an account? Log In
+        <p className="text-center text-sm text-gray-600">
+          ¿Ya tienes una cuenta?
+          <Link href="/login" size="sm" className="text-blue-500">
+            Inicia sesión
           </Link>
         </p>
       </div>
