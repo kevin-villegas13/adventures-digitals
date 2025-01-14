@@ -8,7 +8,6 @@ import {
   Link,
   NavbarBrand,
   NavbarItem,
-  Button,
   Input,
   Dropdown,
   DropdownTrigger,
@@ -21,7 +20,6 @@ import { IconShoppingCart } from "@tabler/icons-react";
 import LogoIcon from "@/icons/logo-icons";
 import { siteConfig } from "@/config/site-config";
 import { SearchIcon } from "lucide-react";
-import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
