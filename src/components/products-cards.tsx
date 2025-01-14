@@ -102,7 +102,7 @@ const renderStars = (rating: number) => {
       <Star
         key={i}
         size={18}
-        className={i <= rating ? "text-yellow-500" : "text-gray-300"}
+        className={i <= rating ? "text-yellow-500 fill-current" : "text-gray-300"}
       />
     );
   }
@@ -134,7 +134,6 @@ const ProductCards = () => {
           Nuestros Productos
         </h1>
 
-        {/* Grid de productos */}
         {/* Grid de productos */}
         <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {currentProducts.map((item, index) => (
@@ -171,12 +170,12 @@ const ProductCards = () => {
                       {item.price}
                     </p>
                   </div>
-                  <div className="flex flex-col sm:flex-row gap-2 mt-4">
+                  <div className="flex flex-col sm:flex-row gap-4 mt-6">
                     {/* Botón de compra */}
                     <Button
                       size="lg"
                       onPress={() => console.log(`Comprado: ${item.title}`)}
-                      className="w-full sm:w-auto flex items-center justify-center gap-2"
+                      className="w-full sm:w-auto flex items-center justify-center gap-3 py-2 px-4 rounded-lg bg-green-500 text-white hover:bg-green-600 hover:shadow-lg transition-all duration-300 transform active:scale-95"
                     >
                       <ShoppingCart size={18} className="mr-2" />
                       Comprar
@@ -187,7 +186,7 @@ const ProductCards = () => {
                       size="lg"
                       as="a"
                       href={`/product/${item.id}`}
-                      className="w-full sm:w-auto text-center bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+                      className="w-full sm:w-auto text-center bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 hover:shadow-lg transition-all duration-300 transform active:scale-95"
                     >
                       Ver Detalles
                     </Button>
