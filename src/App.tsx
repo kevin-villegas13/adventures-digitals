@@ -3,7 +3,8 @@ import HomePage from "./page/home";
 import ProductDetailPage from "./page/product-detail-page";
 import Login from "./page/auth/login";
 import Register from "./page/auth/register";
-import DashboardPage from "./page/dashboard/dashboard";
+import SettingPage from "./page/dashboard/settings/setting";
+import DashboardLayout from "./layouts/dashboard";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
-      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path="settings" element={<SettingPage />} />
+      </Route>
     </Routes>
   );
 }
