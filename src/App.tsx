@@ -5,6 +5,7 @@ import Login from "./page/auth/login";
 import Register from "./page/auth/register";
 import SettingPage from "./page/dashboard/settings/setting";
 import DashboardLayout from "./layouts/dashboard";
+import ProfilePage from "./page/dashboard/profile/profile";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/register" element={<Register />} />
 
       <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path="profile" element={<ProfilePage />} />
         <Route path="settings" element={<SettingPage />} />
       </Route>
     </Routes>
