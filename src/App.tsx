@@ -8,6 +8,9 @@ import DashboardLayout from "./layouts/dashboard";
 import ProfilePage from "./page/dashboard/profile/profile";
 import ProductPage from "./page/dashboard/seller/product/product";
 import SalesPage from "./page/dashboard/seller/sales/sales";
+import OrderPage from "./page/dashboard/buyer/order/order";
+import PurchaseHistoryPage from "./page/dashboard/buyer/purchases/purchases";
+import PaymentMethdPage from "./page/dashboard/buyer/payment-method/payment-methods";
 
 function App() {
   return (
@@ -18,10 +21,18 @@ function App() {
       <Route path="/register" element={<Register />} />
 
       <Route path="/dashboard" element={<DashboardLayout />}>
+        {/*Settings profile  */}
         <Route path="profile" element={<ProfilePage />} />
         <Route path="settings" element={<SettingPage />} />
+
+        {/*Role Seller */}
         <Route path="products" element={<ProductPage />} />
         <Route path="sales" element={<SalesPage />} />
+
+        {/*Role Buyer */}
+        <Route path="orders" element={<OrderPage />} />
+        <Route path="purchases" element={<PurchaseHistoryPage />} />
+        <Route path="payment-methods" element={<PaymentMethdPage />} />
       </Route>
     </Routes>
   );

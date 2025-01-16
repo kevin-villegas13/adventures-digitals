@@ -15,7 +15,7 @@ import { IconMenu2 } from "@tabler/icons-react";
 
 const Sidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const user: User = { rol: "seller" };
+  const user: User = { rol: "buyer" };
 
   // Busco opciones según el rol
   const roleOptions = user.rol === "seller" ? sellerOptions : buyerOptions;

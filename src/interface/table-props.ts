@@ -7,4 +7,5 @@ export type TableComponentProps<T> = {
   onSort: (column: string, sortOrder: "asc" | "desc") => void;
   onRowAction: (rowData: T) => void;
   rowsPerPage: number;
+  showAddButton?: boolean;
 };

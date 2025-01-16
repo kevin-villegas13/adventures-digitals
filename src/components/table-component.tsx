@@ -85,6 +85,7 @@ const TableComponent = <T extends {}>({
   onSort,
   onRowAction,
   rowsPerPage,
+  showAddButton = true,
 }: TableComponentProps<T>) => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
@@ -143,22 +144,23 @@ const TableComponent = <T extends {}>({
             onSearch(e.target.value);
           }}
         />
-
-        <motion.div
-          className="w-full sm:w-auto"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Button
-            color="primary"
-            size="sm"
-            endContent={<PlusIcon />}
-            aria-label="Agregar"
+        {showAddButton && (
+          <motion.div
             className="w-full sm:w-auto"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
-            Agregar
-          </Button>
-        </motion.div>
+            <Button
+              color="primary"
+              size="sm"
+              endContent={<PlusIcon />}
+              aria-label="Agregar"
+              className="w-full sm:w-auto"
+            >
+              Agregar
+            </Button>
+          </motion.div>
+        )}
       </div>
 
       {/* Contenedor de tabla responsiva */}
