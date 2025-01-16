@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white dark:bg-gray-900">
+    <footer className="bg-black text-white">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <motion.div
           className="md:flex md:justify-between"
@@ -19,17 +19,13 @@ const Footer = () => {
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.3 }}
           >
-            <a href="https://flowbite.com/" className="flex items-center">
+            <a href="#" className="flex items-center">
               <motion.img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="h-8 me-3"
-                alt="FlowBite Logo"
+                src="../logo/logo.webp"
+                className="h-14 me-3" // Aumentamos el tamaño del logo
                 whileHover={{ scale: 1.1, rotate: 10 }}
                 transition={{ duration: 0.3 }}
               />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Logo
-              </span>
             </a>
           </motion.div>
 
@@ -42,20 +38,12 @@ const Footer = () => {
           >
             {/* Resources Links */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold uppercase">
                 Resources
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="font-medium">
                 <motion.li
                   className="mb-4"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <a href="https://flowbite.com/" className="hover:underline">
-                    Flowbite
-                  </a>
-                </motion.li>
-                <motion.li
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -74,10 +62,8 @@ const Footer = () => {
 
             {/* Legal Links */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Legal
-              </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <h2 className="mb-6 text-sm font-semibold uppercase">Legal</h2>
+              <ul className="font-medium">
                 <motion.li
                   className="mb-4"
                   whileHover={{ scale: 1.05 }}
@@ -102,7 +88,7 @@ const Footer = () => {
 
         {/* Divider */}
         <motion.hr
-          className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
+          className="my-6 border-gray-700 sm:mx-auto lg:my-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
@@ -115,10 +101,10 @@ const Footer = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
         >
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <span className="text-sm sm:text-center">
             © {currentYear}{" "}
-            <a href="https://flowbite.com/" className="hover:underline">
-              Flowbite™
+            <a href="#" className="hover:underline">
+              VideoGameShop™
             </a>
             . All Rights Reserved.
           </span>
@@ -130,13 +116,13 @@ const Footer = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.8 }}
           >
-            <ul className="text-gray-500 dark:text-gray-400 font-medium flex items-center space-x-6">
+            <ul className="font-medium flex items-center space-x-6">
               <motion.li
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
               >
                 <a
-                  href="https://github.com/themesberg/flowbite"
+                  href="https://github.com/yourprofile"
                   className="flex items-center space-x-2 hover:underline"
                 >
                   <Github />
@@ -148,7 +134,7 @@ const Footer = () => {
                 transition={{ duration: 0.3 }}
               >
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/yourprofile"
                   className="flex items-center space-x-2 hover:underline"
                 >
                   <Instagram />

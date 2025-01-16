@@ -13,11 +13,11 @@ const PromoBanner = () => {
 
   const promoImages = [
     {
-      src: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png",
+      src: "../image/halo.webp",
       alt: "office content 1",
     },
     {
-      src: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png",
+      src: "../image/lol.webp",
       alt: "office content 2",
     },
   ];

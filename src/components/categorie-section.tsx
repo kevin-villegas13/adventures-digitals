@@ -6,7 +6,6 @@ import {
   Headphones,
   Rocket,
   Award,
-  Package,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -40,12 +39,6 @@ const categorias = [
     nombre: "Juegos de Deportes",
     icono: (
       <Award className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
-    ),
-  },
-  {
-    nombre: "Juegos de Simulación",
-    icono: (
-      <Package className="me-2 h-10 w-10 shrink-0 text-gray-900 dark:text-white" />
     ),
   },
 ];
